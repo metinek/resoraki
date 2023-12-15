@@ -14,7 +14,7 @@ function teraz() {
 }
 const kontynenty = ["Afryka", "Ameryka Południowa", "Ameryka Północna", "Antarktyda"];
 
-const k1 = {
+const k = {
     nazwa : "Resorak żółty",
     opis : "śliczny żółty resorak",
     obrazek : obrazek1
@@ -22,8 +22,11 @@ const k1 = {
 
 const resoraki  = [
     {nazwa : "R1", opis : "opi R1", obrazek : obrazek1},
-    {nazwa : "R1", opis : "opi R1", obrazek : obrazek2},
-    {nazwa : "R1", opis : "opi R1", obrazek : obrazek3}
+    {nazwa : "R2", opis : "opi R2", obrazek : obrazek2},
+    {nazwa : "R3", opis : "opi R3", obrazek : obrazek3},
+    {nazwa : "R4", opis : "opi R4", obrazek : obrazek4},
+    {nazwa : "R5", opis : "opi R5", obrazek : obrazek5},
+    {nazwa : "R6", opis : "opi R6", obrazek : obrazek6}
 ]
 
 
@@ -32,9 +35,24 @@ const resoraki  = [
 const App = () => (
     <React.StrictMode>
         <>
+            {Object.keys(k).map(e => (<p key={e}>{k[e]}</p>))}
+
+
+
+            { /*<p>{kontynenty}</p>*/ }
+
             <ol>
-                {kontynenty.map((k)=>(<li>{k}</li>))}
+                    {kontynenty.map((k)=>(<li key={k}>{k}</li>))}
             </ol>
+            {
+                /*
+                    <p>{k.nazwa} {k.opis}</p>
+                    <img src={k.obrazek} alt="żółty resorak"/>
+                    <p>Pole koła o promieniu {promien} jest równe {3.14*promien*promien}.</p>
+                    <h1>{tekst}</h1>
+                    <h2>{teraz()}</h2>
+                */
+            }
 
 
 
@@ -42,15 +60,7 @@ const App = () => (
 
 
 
-
-
-
-            
-            <p>{k1.nazwa} {k1.opis}</p>
-            <img src={k1.obrazek} alt="żółty resorak"/>
-            <p>Pole koła o promieniu {promien} jest równe {3.14*promien*promien}.</p>
-            <h1>{tekst}</h1>
-            <h2>{teraz()}</h2>
+            {resoraki.map((r)=>(<div className="resorak" key={r.nazwa}><h1>{r.nazwa}</h1><p>{r.opis}</p><img src={r.obrazek} alt={r.nazwa}/></div>))}
 
 
 
@@ -58,23 +68,18 @@ const App = () => (
 
 
 
-            {resoraki.map((k)=>(<div className="resorak"><h1>{k.nazwa}</h1><p>{k.opis}</p><img src={k.obrazek} alt={k.nazwa}/></div>))}
-
-
-
-
-
-
-
-
-            <Resorak2 auto={k1}/>
-            <Resorak nazwa={k1.nazwa} opis={k1.opis} obrazek={k1.obrazek}/>
-            <Resorak nazwa="Resorak żółty" opis="śliczny żółty resorak" obrazek={obrazek1}/>
-            <Resorak nazwa="Resorak czerwony" opis="śliczny czerwony resorak" obrazek={obrazek2}/>
-            <Resorak nazwa="Resorak zielony" opis="śliczny zielony resorak" obrazek={obrazek3}/>
-            <Resorak nazwa="Resorak niebieski" opis="śliczny niebieski resorak" obrazek={obrazek4}/>
-            <Resorak nazwa="Resorak turkusowy" opis="śliczny turkusowy resorak" obrazek={obrazek5}/>
-            <Resorak nazwa="Resorak kremowy" opis="śliczny kremowy resorak" obrazek={obrazek6}/>
+            {
+                /*
+                    <Resorak2 auto={k}/>
+                    <Resorak nazwa={k.nazwa} opis={k.opis} obrazek={k.obrazek}/>
+                    <Resorak nazwa="Resorak żółty" opis="śliczny żółty resorak" obrazek={obrazek1}/>
+                    <Resorak nazwa="Resorak czerwony" opis="śliczny czerwony resorak" obrazek={obrazek2}/>
+                    <Resorak nazwa="Resorak zielony" opis="śliczny zielony resorak" obrazek={obrazek3}/>
+                    <Resorak nazwa="Resorak niebieski" opis="śliczny niebieski resorak" obrazek={obrazek4}/>
+                    <Resorak nazwa="Resorak turkusowy" opis="śliczny turkusowy resorak" obrazek={obrazek5}/>
+                    <Resorak nazwa="Resorak kremowy" opis="śliczny kremowy resorak" obrazek={obrazek6}/>
+                */
+            }
         </>
     </React.StrictMode>
 )
